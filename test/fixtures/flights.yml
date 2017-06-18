@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departing_id: 1
+  arriving_id: 1
+  date: 2017-06-18 16:32:38
+  duration: 1
+
+two:
+  departing_id: 1
+  arriving_id: 1
+  date: 2017-06-18 16:32:38
+  duration: 1
