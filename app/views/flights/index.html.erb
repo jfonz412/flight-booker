@@ -14,7 +14,20 @@
 	<br>
 	<%= submit_tag "Search" %>
 <% end %>
-
+<br>
 <% if @available_flights %>
-	
+	<%= form_tag "bookings/new", method: :get do %>
+		<table>
+			<th>Test</th>
+			<th>Test2</th>
+			<tr>
+				<td>test</td>
+				<td>test2</td>
+				<td>test3</td>
+			</tr>
+			<tr>
+				<td>test</td>
+				<td>test2</td>
+			</tr>
+	<% end %>
 <% end %>
