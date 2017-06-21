@@ -10,9 +10,9 @@ class FlightsController < ApplicationController
   private
   	def find_flights
   		available_flights = []
-  		departures = Flight.all.map do |f|
+  		Flight.all.map do |f|
   			if f.from_airport.code == params[:departing_from] && f.to_airport.code == params[:arriving_at]
-  				available_flights << f.id
+  				available_flights << f
   			end
   		end
   	end

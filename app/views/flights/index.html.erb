@@ -18,16 +18,18 @@
 <% if @available_flights %>
 	<%= form_tag "bookings/new", method: :get do %>
 		<table>
-			<th>Test</th>
-			<th>Test2</th>
-			<tr>
-				<td>test</td>
-				<td>test2</td>
-				<td>test3</td>
-			</tr>
-			<tr>
-				<td>test</td>
-				<td>test2</td>
-			</tr>
+			<th><%= label_tag "Departing" %></th>
+			<th><%= label_tag "Arriving"  %></th>
+			<th><%= label_tag "Date"      %></th>
+
+			<% @available_flights[0].each do |flight| %>
+				<tr>
+					<td><%= flight.from_airport.code %></td>
+					<td><%= flight.to_airport.code %></td>
+					<td><%= flight.formatted_date %></td>
+				</tr>
+			<% end %>
+
+		</table>
 	<% end %>
 <% end %>
