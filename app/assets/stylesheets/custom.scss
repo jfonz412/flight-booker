@@ -1,6 +1,8 @@
 /*Basic*/
+
 h1 {
 	text-align: center;
+	text-decoration: underline;
 }
 
 /*Tables*/
@@ -14,6 +16,7 @@ table,th,td {
 }
 
 th {
+	background-color: grey;
 	height: 30px;
 	text-decoration: underline;
 }
@@ -22,3 +25,6 @@ td {
 	text-align: center;
 }
 
+p {
+	font-weight: bold;
+}

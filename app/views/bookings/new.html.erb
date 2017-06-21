@@ -1,9 +1,24 @@
 <h1>Book your flight</h1>
+<table>
+	<th>Flight #<%= @flight.id %>               </th>
+	<th>From:   <%= @flight.from_airport.code %></th>
+	<th>To:     <%= @flight.to_airport.code %>  </th>
+	<th>Date:   <%= @flight.formatted_date %>   </th>
+</table>
+<br>
 <%= form_for @booking do |f| %>
-	<table>
-		<th>Flight #<%= @flight.id %>               </th>
-		<th>From: <%= @flight.from_airport.code %>  </th>
-		<th>To: <%= @flight.to_airport.code %>      </th>
-		<th>Date: <%= @flight.formatted_date %>     </th>
-	</table>
+	<%= hidden_field_tag(:flight_id, params[:flight_id]) %>
+	<% @passengers.each do |passenger| %>
+		<%= f.fields_for passenger, index: passenger.id do |p| %>
+			<p>Passenger:</p>
+			<%= label_tag :name %>
+			<%= p.text_field :name %>
+			<br>
+			<%= label_tag :email %>
+			<%= p.email_field :email %>
+			<br>
+		<% end %>
+  <% end %>
+	<%= f.submit "Book Flight" %>
 <% end %>
+
