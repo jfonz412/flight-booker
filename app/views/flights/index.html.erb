@@ -15,7 +15,7 @@
 	<%= submit_tag "Search" %>
 <% end %>
 <br>
-<% if @available_flights[0] %>
+<% if @available_flights %>
 	<%= form_tag "bookings/new", method: :get do %>
 		<%= hidden_field_tag(:passagers, params[:passagers]) %>
 		<table>
@@ -23,7 +23,7 @@
 			<th><%= label_tag "Departing" %></th>
 			<th><%= label_tag "Arriving"  %></th>
 			<th><%= label_tag "Date"      %></th>
-			<% @available_flights[0].each do |flight| %>
+			<% @available_flights.each do |flight| %>
 				<tr>
 					<td><%= radio_button_tag(:flight, flight) %></td>
 					<td><%= flight.from_airport.code %></td>

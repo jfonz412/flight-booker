@@ -9,11 +9,8 @@ class FlightsController < ApplicationController
 
   private
   	def find_flights
-  		available_flights = []
-  		Flight.all.map do |f|
-  			if f.from_airport.code == params[:departing_from] && f.to_airport.code == params[:arriving_at]
-  				available_flights << f
-  			end
-  		end
+      departing_airport = Airport.find_by_code( params[:departing_from] )
+      arriving_airport  = Airport.find_by_code( params[:arriving_at]    )
+      Flight.where("from_id = ? AND to_id = ?", departing_airport.id, arriving_airport.id)
   	end
 end
