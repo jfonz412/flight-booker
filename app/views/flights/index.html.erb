@@ -10,14 +10,14 @@
 	<%= select_tag(:date, options_for_select(@flight_dates)) %><br>
 	<br>
 	<%= label_tag "Passengers:" %><br>
-	<%= select_tag(:passagers, options_for_select(@passenger_max)) %><br>
+	<%= select_tag(:passengers, options_for_select(@passenger_max)) %><br>
 	<br>
 	<%= submit_tag "Search" %>
 <% end %>
 <br>
 <% if @available_flights %>
 	<%= form_tag bookings_path, method: :get do %>
-		<%= hidden_field_tag(:passagers, params[:passagers]) %>
+		<%= hidden_field_tag(:passengers, params[:passengers]) %>
 		<table>
 			<th><%= label_tag "Book"  %></th>
 			<th><%= label_tag "Departing" %></th>
