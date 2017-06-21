@@ -8,10 +8,13 @@ h1 {
 /*Tables*/
 
 table {
+	margin-left:auto; 
+  margin-right:auto;
 	width: 75%;
 	border-collapse: collapse;
 }
 table,th,td {
+
 	border: 1px solid black;
 }
 
@@ -27,4 +30,8 @@ td {
 
 p {
 	font-weight: bold;
+}
+
+#passengers {
+	width: 30%;
 }

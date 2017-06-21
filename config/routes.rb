@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   post '/bookings',  to: 'bookings#create'
   get  '/bookings',  to: 'bookings#new'
   get  '/flights',   to: 'flights#index'
+  resources :bookings, only: [:show]
 end

@@ -10,11 +10,16 @@ class BookingsController < ApplicationController
   end
 
   def create
-  	booking = Booking.new(flight_id: params[:flight_id].to_i)
-  	booking.save
+  	@booking = Booking.create(flight_id: params[:flight_id].to_i)
 	  params[:booking][:passenger].each do |passenger|
-	  	booking.passengers.create(name: passenger[:name], email: passenger[:email])
+	  	@booking.passengers.create(name: passenger[:name], email: passenger[:email])
 	  end
+	  redirect_to @booking
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @flight = Flight.find(@booking.flight_id)
   end
 
   private
