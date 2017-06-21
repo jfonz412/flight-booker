@@ -1,6 +1,9 @@
 <h1>Book your flight</h1>
-<%= @flight %>
-<br>
-<br>
-<p>Booking for <%= @passengers %> passengers</p>
-
+<%= form_for @booking do |f| %>
+	<table>
+		<th>Flight #<%= @flight.id %>               </th>
+		<th>From: <%= @flight.from_airport.code %>  </th>
+		<th>To: <%= @flight.to_airport.code %>      </th>
+		<th>Date: <%= @flight.formatted_date %>     </th>
+	</table>
+<% end %>
