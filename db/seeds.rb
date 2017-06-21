@@ -23,3 +23,5 @@ Flight.create(date: Time.now, duration:180, from_id:lax.id, to_id:atl.id)
 Flight.create(date: Time.now, duration:180, from_id:atl.id, to_id:lgo.id)
 Flight.create(date: Time.now, duration:180, from_id:lgo.id, to_id:fll.id)
 Flight.create(date: Time.now, duration:180, from_id:tps.id, to_id:sfo.id)
+# duplicate
+Flight.create(date: Time.now, duration:180, from_id:sfo.id, to_id:jfk.id)
