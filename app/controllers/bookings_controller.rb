@@ -10,6 +10,15 @@ class BookingsController < ApplicationController
   end
 
   def create
-  	redirect_to root_url
+  	booking = Booking.new(flight_id: params[:flight_id].to_i)
+  	booking.save
+	  params[:booking][:passenger].each do |passenger|
+	  	booking.passengers.create(name: passenger[:name], email: passenger[:email])
+	  end
   end
+
+  private
+  	def booking_params
+  		params.require(:booking).permit(:flight_id, passenger: [:name, :email])
+  	end
 end
