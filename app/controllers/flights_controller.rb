@@ -3,7 +3,10 @@ class FlightsController < ApplicationController
   	@airport_options = Airport.all.map{ |a| a.code }
   	@flight_dates = Flight.all.map{ |f| f.formatted_date }
   	@passenger_max = [1,2,3,4]
-  	@available_flights = find_flights
+    # unless prevents find_flights from running prematurely
+    unless params[:departing_from].nil?
+  	 @available_flights = find_flights
+    end
   end
 
   private

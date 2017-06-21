@@ -25,7 +25,7 @@
 			<th><%= label_tag "Date"      %></th>
 			<% @available_flights.each do |flight| %>
 				<tr>
-					<td><%= radio_button_tag(:flight, flight) %></td>
+					<td><%= radio_button_tag(:flight, flight.id) %></td>
 					<td><%= flight.from_airport.code %></td>
 					<td><%= flight.to_airport.code   %></td>
 					<td><%= flight.formatted_date    %></td>
