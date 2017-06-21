@@ -16,7 +16,7 @@
 <% end %>
 <br>
 <% if @available_flights %>
-	<%= form_tag "bookings/new", method: :get do %>
+	<%= form_tag bookings_path, method: :get do %>
 		<%= hidden_field_tag(:passagers, params[:passagers]) %>
 		<table>
 			<th><%= label_tag "Book"  %></th>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-
   root 'flights#index'
-  get  '/flights', to: 'flights#index'
+  get  '/bookings',  to: 'bookings#new'
+  get  '/flights',   to: 'flights#index'
 end
