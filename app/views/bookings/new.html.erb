@@ -6,9 +6,10 @@
 	<th>Date:   <%= @flight.formatted_date %>   </th>
 </table>
 <br>
-<%= form_for @booking do |f| %>
+<%= form_for @booking do |f| %> <!--makes params[:booking] -->
 	<%= hidden_field_tag(:flight_id, params[:flight_id]) %>
 	<% @passengers.each do |passenger| %>
+ <!--makes params[:booking][passenger], index makes each unique -->
 		<%= f.fields_for passenger, index: passenger.id do |p| %>
 			<p>Passenger:</p>
 			<%= label_tag :name %>
