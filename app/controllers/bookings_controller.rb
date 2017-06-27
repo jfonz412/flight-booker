@@ -11,9 +11,9 @@ class BookingsController < ApplicationController
 
   def create
   	@booking = Booking.create(flight_id: params[:flight_id].to_i)
-	  params[:booking][:passenger].each do |passenger|
-	  	@booking.passengers.create(name: passenger[:name], email: passenger[:email])
-      Passenger.thank_you_email(passenger)
+	  params[:booking][:passenger].each do |p|
+	  	passenger = @booking.passengers.create(name: p[:name], email: p[:email])
+      PassengerMailer.thank_you_email(passenger).deliver_now
 	  end
 	  redirect_to @booking
   end
